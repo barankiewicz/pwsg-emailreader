@@ -21,12 +21,14 @@ namespace wpflab1
     /// </summary>
     public partial class Window1 : Window
     {
-        bool isLoggedIn;
-        public ObservableCollection<EmailMessage> messages = null;
+        public ObservableCollection<EmailMessage> messagesRcvd = null;
+        public ObservableCollection<EmailMessage> messagesSnt = null;
+        public EmailUser usr = null;
         public Window1()
         {
-            isLoggedIn = false;
+            
             InitializeComponent();
+            DataContext = this;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -34,29 +36,44 @@ namespace wpflab1
             Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private bool checkCredentials()
         {
-            if(isLoggedIn)
+            EmailUser loggedUser;
+            string login = loginBox.Text;
+            string password = pswdBox.Password;
+            bool success = EmailData.GetUserData(login, password, out loggedUser);
+            if (success)
             {
-                loginBox.Text = "Login";
-
+                usr = loggedUser;
+                messagesRcvd = loggedUser.MessagesReceived;
+                messagesSnt = loggedUser.MessagesSent;
+                return true;
             }
             else
             {
-                EmailUser loggedUser;
-                string login = loginBox.Text;
-                string password = pswdBox.Password;
-                bool success = EmailData.GetUserData(login, password, out loggedUser);
-                if (success)
-                {
-                    messages = loggedUser.MessagesReceived;
-                    isLoggedIn = true;
-                    loginBox.Text = "Logout";
+                usr = null;
+                messagesRcvd = null;
+                messagesSnt = null;
+                return false;
+            }
+                
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (checkCredentials())
+                Close();
+            else
+                MessageBox.Show("Login failed");
+        }
+
+        private void pswdBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                if (checkCredentials())
                     Close();
-                }
                 else
                     MessageBox.Show("Login failed");
-            }
         }
     }
 }

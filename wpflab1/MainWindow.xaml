@@ -6,34 +6,99 @@
         xmlns:local="clr-namespace:wpflab1"
         mc:Ignorable="d"
         Title="Mail Manager" Height="600" Width="800" MinWidth="800" MinHeight="400">
+
+    <Window.Resources>
+        <DataTemplate x:Key="selectedItemTemplate">
+            <Grid HorizontalAlignment="Stretch" Height="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="{Binding Title}" FontSize="15"/>
+                <Label Grid.Row="1" Content="{Binding Date}" FontSize="15"/>
+                <Label Grid.Row="2" Content="{Binding From, StringFormat='From: {0}'}" FontSize="15"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="unselectedItemTemplate">
+            <Grid Height="30" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="{Binding Title}" HorizontalAlignment="Left"></Label>
+                <Label Grid.Column="1" Content="{Binding Date}" HorizontalAlignment="Right"></Label>
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="leftListBoxStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="ContentTemplate" Value="{StaticResource unselectedItemTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource selectedItemTemplate}" />
+                </Trigger>
+                <Trigger Property="ListBox.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#b5d1ff "/>
+                </Trigger>
+                <Trigger Property="ListBox.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#edf3ff"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid Margin="0,0,0,0" MinWidth="800" MinHeight="400">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition MaxWidth="198" MinWidth="198"/>
-            <ColumnDefinition MinWidth="2" Width="2"/>
-            <ColumnDefinition MinWidth="600" Width="Auto"/>
+            <ColumnDefinition Width="4*" MinWidth="210" x:Name="leftColumn"/>
+            <ColumnDefinition MinWidth="2" Width="2" x:Name="gridColumn"/>
+            <ColumnDefinition Width="7*" x:Name="rightColumn"/>
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
-            <TabControl>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="{Binding usr.Name}"/>
+                    <TextBlock Grid.Row="1" Text="{Binding usr.LastName}"/>
+                </Grid>
+            </Grid>
+
+            <TabControl Grid.Row="1" x:Name="messagesCol">
                 <TabItem Header="Received">
-                    <ListBox Margin="0,0,0,0" x:Name="recvdListBox" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                    <ListBox ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="recvdListBox" HorizontalContentAlignment="Stretch">
+                    </ListBox>
                 </TabItem>
                 <TabItem Header="Sent" IsEnabled="True">
-                    <ListBox Margin="0,0,0,0" x:Name="sentListBox" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                    <ListBox ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="sntListBox"/>
                 </TabItem>
+
             </TabControl>
-            
         </Grid>
+
         <Grid Grid.Column="1" Background="Gray"/>
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="98"/>
                 <RowDefinition MinHeight="2" Height="2"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Background="Gray" Width="Auto"/>
-            <Grid Grid.Row="0">
-                <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click" Grid.ColumnSpan="2" />
-            </Grid>
+            <Button x:Name="loginButton" Grid.Row="0 " Content="Login" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click" Grid.ColumnSpan="2" />
+            <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <TextBlock Text="{Binding selectedMessage.Body}" TextWrapping="Wrap"/>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Window>

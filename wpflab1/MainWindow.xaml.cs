@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,29 +21,83 @@ namespace wpflab1
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        public ObservableCollection<EmailMessage> messages = new ObservableCollection<EmailMessage>();
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void RaisePropertyChanged(string propertyName)
+        {
+            if(PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        bool isLoggedIn;
+        private EmailMessage _selectedMessage;
+        private EmailUser _usr;
+        public ObservableCollection<EmailMessage> messagesRcvd { get; set; }
+        public ObservableCollection<EmailMessage> messagesSnt { get; set; }
+        public EmailMessage selectedMessage { get { return _selectedMessage; } set { _selectedMessage = value; RaisePropertyChanged("selectedMessage"); } }
+        public EmailUser usr { get { return _usr; } set { _usr = value; RaisePropertyChanged("usr"); } }
+
         public MainWindow()
         {
+            _selectedMessage = new EmailMessage();
+            messagesRcvd = new ObservableCollection<EmailMessage>();
+            messagesSnt = new ObservableCollection<EmailMessage>();
+            usr = new EmailUser();
+            isLoggedIn = false;
             InitializeComponent();
+            leftColumn.MinWidth = 0;
+            leftColumn.Width = new GridLength(0, GridUnitType.Star);
+            rightColumn.Width = new GridLength(1, GridUnitType.Star);
+            gridColumn.Width = new GridLength(0, GridUnitType.Pixel);
+            DataContext = this;
+            recvdListBox.ItemsSource = messagesRcvd;
+            sntListBox.ItemsSource = messagesSnt;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Opacity = 0.5;
-            Window1 wnd = new Window1();
-            wnd.ShowInTaskbar = false;
-            wnd.Owner = this;
-            wnd.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            wnd.ShowDialog();
-            if (wnd.messages != null)
+            if(isLoggedIn)
             {
-                messages = wnd.messages;
-                
+                leftColumn.MinWidth = 0;
+                leftColumn.Width = new GridLength(0, GridUnitType.Star);
+                rightColumn.Width = new GridLength(1, GridUnitType.Star);
+                gridColumn.Width = new GridLength(0, GridUnitType.Pixel);
+
+                messagesSnt.Clear();
+                messagesRcvd.Clear();
+                usr = new EmailUser();
+                loginButton.Content = "Login";
+                isLoggedIn = false;
             }
-                
-            Opacity = 1;
+            else
+            {
+
+                Opacity = 0.5;
+                Window1 wnd = new Window1();
+                wnd.ShowInTaskbar = false;
+                wnd.Owner = this;
+                wnd.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                wnd.ShowDialog();
+                if (wnd.messagesRcvd != null)
+                {
+                    rightColumn.Width = new GridLength(7, GridUnitType.Star);
+                    leftColumn.Width = new GridLength(4, GridUnitType.Star);
+                    gridColumn.Width = new GridLength(2, GridUnitType.Pixel);
+                    leftColumn.MinWidth = 210;
+
+                    loginButton.Content = "Logout";
+                    for(int i = 0; i<wnd.messagesRcvd.Count; i++)
+                        messagesRcvd.Add(wnd.messagesRcvd[i]);
+
+                    for (int i = 0; i < wnd.messagesSnt.Count; i++)
+                        messagesRcvd.Add(wnd.messagesSnt[i]);
+
+                    usr = wnd.usr;
+                    isLoggedIn = true;
+                }
+                Opacity = 1;
+            }
         }
     }
 }
