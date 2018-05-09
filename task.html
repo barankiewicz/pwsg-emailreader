@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+      <head>
+          <meta charset="UTF-8">
+      </head>
+      <body>
+	 <h4>WPF - część pierwsza</h4>
+    <p>Contact manager</p>
+    <ul>
+        <li><a href="lab.exe">Aplikacja przykładowa</a></li>
+        <li>
+            Opis:
+            <ul>
+                <li>zadanie polega na napisaniu prostej aplikacji do zarządzania emailami</li>
+                <li>po zalogowaniu użytkownik ma dostęp do swoich wiadomości</li>
+                <li>wraz z zadaniem dostarczony jest plik dll, w którym zakodowani zostali dwaj użytkownicy o następujących danych:</li>
+					<ul>
+						<li>Login: <b>mini</b>, Hasło: <b>pw</b></li>
+						<li>Login: <b>wpf</b>, Hasło: <b>iseasy</b></li>
+					</ul></li>
+				<li>dostarczony plik dll zawiera metody umożliwiające zalogowanie oraz pobranie listy maili dla danego użytkownika, przykład:
+					<pre>
+EmailUser loggedUser;
+bool success = EmailData.GetUserData(login, password, out loggedUser);
+if(success) var messages = loggedUser.MessagesReceived;
+					</pre>
+				<li>nie ma obowiązku używania dostarczonego pliku dll, można napisać własną implementację powyższych funkcjonalności</li>
+            </ul>
+        </li>
+        <li>
+            Wymagania:
+            <ul>
+                <li>
+                    Główne okno:
+                    <ul>
+                        <li>minimalny rozmiar 800 x 400, rozmiar początkowy 800 x 600</li>
+						<li>napis "Mail Manager" na pasku tytułowym okna</li>
+                        <li>okno pojawia się na środku ekranu</li>
+                        <li>okno podzielone jest pionowo na dwie części</li>
+							<ul>
+								<li>lewa część o stałej szerokości 200px</li>
+								<li>prawa część, zajmująca resztę miejsca</li>
+								<li>obie części oddziela pasek o szerokości 2px w kolorze "Gray"</li>
+							</ul>
+
+                    </ul>
+                </li>
+                <li>
+                    Lewa część głównego okna:
+                    <ul>
+                        <li>gdy użytkownik nie jest zalogowany jest pusta</li>
+                        <li>po zalogowaniu pojawiają się dwie zakładki:</li>
+							<ul>
+								<li>Received:</li>
+								<ul>
+									<li>lista odebranych maili zalogowanego użytkownika</li>
+									<li>pozycje parzyste i nieparzyste mają różne kolory tła  - #b5d1ff i #edf3ff</li>
+									<li>w zaznaczonym elemencie zmienia się szablon dla wiadomości. Tytuł, data oraz mail nadawcy są umieszczone jedno pod drugim. Ponadto zaznaczony element ma inny kolor tła (#b4ceab) oraz inny rozmiar tekstu (16pkt) </li>
+									<li>implementacja powyższej funkcjonalności musi być odporna na np. usuwanie elementów ze środka, sortowanie i inne (czyli nie może być zrealizowana wyłącznie poprzez ustawienie tła elementu w momencie dodania go do listy)</li>
+									<li>do wyświetlania informacji wiadomości musi zostać stworzony odpowiedni szablon, elementy powinny być ustawione tak, jak w przykładowej aplikacji</li>
+									<li>zaznaczony element na liście jest wyświetlany w w prawej części okna - tak jak w aplikacji przykładowej</li>
+									<li>W dostarczonej dll jest już gotowa klasa EmailMessage. Wystarczy użyć tej klasy i stworzyć dla niej odpowiednie szablony w xaml</li>
+								</ul>
+								<li>Sent:</li>
+								<ul>
+									<li>w części laboratoryjnej jest nieaktywna</li>
+								</ul>
+							</ul>
+                        <li></li>
+                    </ul>
+                </li>
+				<li>
+					Prawa część głównego okna:
+					<ul>
+                        <li>składa się z dwóch części górnej i dolnej</li>
+						<li>obie części oddzielone paskiem o wysokości 2px w kolorze "Gray"</li>
+						<li>Górna część:
+						<ul>
+							<li>Wysokość 100px</li>
+							<li>Po lewej stronie jest umieszczony przycisk o rozmiarze 70x70px</li>
+							<li>Przycisk wyświetla tekst "Login" lub "Logout" w zależności od tego czy jest zalogowany użytkownik</li>
+							<li>Jeżeli "Login" to wyskakuje nowe okno dialogowe, jeżeli "Logout" to użytkownik zostaje wylogowany (znika lista z lewej strony)</li>
+						</ul>
+						</li>
+						<li>Dolna część:
+							<ul>
+								<li>Służy do wyświetlania zaznaczonej wiadomości na liście odebranych wiadomości</li>
+								<li>Jedno pod drugim wyświetlone są: Tytuł, mail, data oraz treść</li>
+								<li>W przypadku zbyt długiej treści maila, powinien zostać wyświetlony ScrollBar</li>
+							</ul>
+						</li>
+                    </ul>
+				</li>
+				<li>Okienko dialogowe:</li>
+				<ul>
+					<li>Wyświetla się na środku okna głównego</li>
+					<li>Okno główne przyciemnia się, gdy pojawia się okienko dialogowe (Opacity = 0.5)</li>
+					<li>Okno dialogowe nie ma paska tytułowego oraz nie wyświetla się na pasku zadań</li>
+					<li>Na górze tekst "Login" w kolorze "DarkGreen", rozmiar 25pkt</li>
+					<li>Są w nim 2 pola, jedno na wpisanie loginu drugie na wpisanie hasła</li>
+					<li>Hasło jest wpisywane w postaci kropek (patrz aplikacja przykładowa)</li>
+					<li>Dwa przyciski (na dole, na środku): Cancel i OK. Po naciśnięciu Cancel okno dialogowe się zamyka. Po naciśnięciu OK następuje próba logowania użytkownika. Jeżeli się nie udało zalogować to zostaje wyświetlony MessageBox z informacją LoginFailed</li>
+					<li>Jeżeli logowanie powiodło się, okno dialogowe zamyka się i lista maili użytkownika zostaje wyświetlona tak jak to opisano powyżej</li>
+					<li>Kolor tekstu przycisków "DarkGreen"</li>					
+				</ul>
+            </ul>
+        </li>
+        <li>
+            Uwagi:
+            <ul>
+            	<li>aplikacja jest odporna na skalowanie okna, kontrolki dostosowują się do zmian rozmiaru okna aplikacji</li>
+                <li>w razie niejasności program musi być zgodny z zachowaniem i wyglądem aplikacji przykładowej, jednak nie należy wzorować się na potencjalnych bugach</li>
+            </ul>
+        </li>
+        <li>
+            Wskazówki:
+            <ul>
+                <li>Data binding</li>
+                <li>Grid</li>
+                <li>Border</li>
+				<li>TabControl</li>
+                <li>ScrollViewer</li>
+                <li>YourNewXAMLWindow wnd = new YourNewXAMLWindow(); wnd.ShowDialog()</li>
+                <li>Owner</li>
+                <li>PasswordBox, Textbox</li>
+                <li>WindowStyle, ResizeMode, WindowStartupLocation, ShowInTaskbar </li>
+                <li>AlternationIndex</li>				
+                <li>Trigger</li>
+				<li>Setter, ContentTemplate</li>
+				<li>SystemColors.HighlightBrushKey</li>
+                <li>ListBox, ListBox.ItemsSource</li>
+                <li>ItemContainerStyle</li>
+                <li>DataTemplate</li>
+                
+            </ul>
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            Punktacja:
+            <ul>
+                <li>Wygląd głównego okna (wraz z odpowiednim skalowaniem) oraz wygląd okna dialogowego - 2pkt</li>
+				<li>okno dialogowe (dowolny wygląd), logowanie i wyświetlanie listy odebranych maili (z dowolnym stylem) - 2pkt</li>
+                <li>styl listy i wyświetlanie zaznaczonej wiadomości - 4pkt</li>
+            </ul>
+        </li>
+    </ul>
+    <h4>WPF - część druga</h4>
+    <ul>
+        <li><a href="home.exe">Aplikacja przykładowa</a></li>
+		<li>wszystkie ikony użyte w zadaniu znajdują się w paczce <a href="resources.rar">resources</a>
+		<li><b>aplikacja powinna wyglądać jak przykładowa!</b></li>
+        <li>
+            Opis:
+            <ul>
+                <li>
+                    Lewa część głównego okna:
+                    <ul>
+						<li>Jest widoczna tylko wtedy gdy użytkownik jest zalogowany</li>
+						<li>Podczas skalowania całego okna, lewa część okna zachowuje proporcje 4 do 7, lecz jej minimalna szerokość nie może być mniejsza niż 210px</li>
+						<li>Nad listą maili jest wyświetlony obrazek (50x50px), a obok niego imię i nazwisko użytkownika (jak w aplikacji przykładowej). Tą funkcjonalność zrealizować za pomocą bindingu do obiektu zalogowanego użytkownika</li>
+						<li>Jeżeli długość tytułu wiadomości, lub maila lub adresu jest zbyt długa, należy wyświetlić "..." zamiast nowej linii</li>
+						<li>TabControl:
+							<ul>
+								<li>Zakładka Sent jest odblokowana i znajduje się tam lista wysłanych wiadomości. Należy stworzyć nowy szablon dla wiadomości wysłanych</li>
+								<li>należy zmienić styl zakładek, tak aby wyglądały jak te w aplikacji przykładowej</li>
+								<li>rozmiar czcionki: 15pkt</li>
+								<li>podczas gdy dana zakładka jest aktywna jej kolor zmienia się, a tytuł zostaje podkreślony  - kolor: #3462ad</li>
+								<li>po najechaniu na zakładkę zmienia się wygląd kursora</li>
+							</ul>
+						</li>
+                    </ul>
+                </li>
+				<li>Górna część prawej części głównego okna</li>
+					<ul>
+					<li>Nowy przycisk "New Email". Po jego naciśnięciu pojawia się formularz wysyłania maila opisany w dalszej części tekstu</li>
+					<li>Zarówno przycisk Login jak i NewEmail oprócz tekstu posiadają także odpowiednią ikonkę o rozmiarze 40x40px</li>
+						<li>wyszukiwarka:
+							<ul>
+								<li>textbox z ikoną lupy po lewej stronie</li>
+								<li>wyszukiwarka rozdziela słowa po spacji</li>
+								<li>dla każdego słowa jest przeszukiwana lista maili</li>
+								<li>jeżeli tytuł, data lub adres email zawierają w sobie dany string to jest on dodawany na listę wyników wyszukiwania</li>
+								<li>jeżeli jest zaznaczona zakładka Received to wyszukiwanie dotyczy maili odebranych, a jeżeli Sent to maili wysłanych</li>
+								<li>podczas wyszukiwania na liście wyników znajdują się tylko znalezione maile. Można je usuwać przyciskiem Delete</li>
+								<li>oczywiście zmiany dokonane na mailach z listy wyników są zsynchronizowane z listą maili w danej zakładce</li>
+							</ul>
+						</li>						
+					<li>2 radiobuttony do zmiany języka</li>
+					<ul>
+					<li>Realizacja zmiany języka musi zostać zrealizowana za pomocą odpowiednich bindingów. Nie może być to zrobione na sztywno w kodzie</li>
+					<li>Tłumaczeniu podlega tytuł, całe okno główne wraz z szablonami wiadomości oraz wszystkie dialogi i MessageBox</li></ul>
+
+					</ul>
+                <li>
+                    Formularz wysyłania nowego maila:
+                    <ul>
+                        <li>wyświetlany jako okno dialogowe, na środku, niewidoczne na pasku zadań</li>
+						<li>zawsze zajmuje 80% rozmiaru okna głównego. Podobnie jak dla okna logowania, okno główne wyciemnia się, jeżeli formularz jest widoczny</li>
+						<li>Na górze tekst w kolorze "DarkGreen", czcionka 25pkt, następnie po kolei miejsce na wypełnienie adresata, tytułu i treści wiadomości</li>
+						<li>Na dole dwa przyciski Cancel oraz Send. Send jest aktywny tylko wtedy gdy:
+						<ul>
+							<li>adres email jest poprawny tj. przynajmniej jeden znak przed @, przynajmniej jeden znak pomiędzy @ i . oraz co najmniej dwa znaki po . </br> przykład a@a.aa - poprawny, a@.aa - niepoprawny</li>
+							<li>tytuł nie jest pusty i nie składa się tylko z białych znaków</li>
+							<li>długość wiadomości ma co najmniej 10 znaków i nie składa się tylko z białych znaków</li>
+						</ul>
+						<li>w przypadku błędu, w którymś z pól, użytkownik powinien zostać poinformowany przed odpowiedni szablon błędu. Może to być biały X na czerwonym polu po prawej stronie od tekstu - tak jak w aplikacji przykładowej. Po najechaniu na znak błędu powinien zostać wyświetlony dodatkowy komunikat informujący o przyczynie błędu</li>
+						<li><b>Uwaga! Cały formularz powinien podlegać zmianie języka razem z komunikatami o błędzie</b></li>
+						</li>
+						<li>Po naciśnięciu send, nowa wiadomość trafia do listy wysłanych wiadomości w zakładce Sent</li>
+                    </ul>
+                </li>
+				<li>
+                    Okno dialogowe logowania:
+                    <ul>
+                        <li>Przycisk OK jest aktywny tylko wtedy, gdy zarówno login jak i hasło nie są puste</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Dodatkowe wymagania:
+            <ul>
+                <li>obowiązkowo należy spełnić wszystkie wymagania części pierwszej zadania</li>
+                <li>wykorzystywać binding tam gdzie jest to możliwe</li>
+                <li>należy zwrócić uwagę, aby kontrolki zachowywały się i wyglądały jak w aplikacji przykładowej (uwaga na skalowanie, zmianę zawartości itd.)</li>
+                <li>należy zadbać, aby wszystkie formularze wykorzystane w aplikacji przyjmowały tylko sensowne dane</li>
+                <li>w razie niejasności program musi być zgodny z zachowaniem i wyglądem aplikacji przykładowej (z wyjątkiem potencjalnych bugów)</li>
+            </ul>
+        </li>
+        <li>
+            Wskazówki:
+            <ul>
+                <li>ControlTemplate, ContentPresenter</li>
+				<li>DataTrigger, Style, Trigger</li>
+				<li>Regex</li>
+                <li>ControlTemplate.Triggers</li>
+				<li>ValidationRule</li>
+				<li>MultiBinding</li>
+				<li>IMultiValueConverter</li>
+				<li>Validation.ErrorTemplate, Validation.HasError, AdornedElementPlaceholder</li>
+				<li>Opacity</li>
+				<li>ResourceDictionary</li>
+				<li>DynamicResource</li>
+				<li>Thread.CurrentThread.CurrentCulture; Thread.CurrentThread.CurrentUICulture</li>
+            </ul>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            Punktacja:
+            <ul>
+                <li>dodanie ikonek do buttonów - 1pkt</li>
+                <li>zrobienie wyszukiwarki - 2pkt</li>
+                <li>odpowiednie zachowanie layoutu okna głównego (pojawianie, znikanie panelu użytkownika oraz skalowanie) - 1pkt</li>
+                <li>odpowiednie zawijanie zbyt długiego tekstu - 1pkt</li>
+                <li>stylizacja TabControl - 2pkt</li>
+                <li>okienko wysyłania nowego maila - stylizacja - 1pkt</li>
+                <li>okienko wysyłania nowego maila - walidacja danych i ustawianie Button.IsEnabled w zależności od poprawności danych - 2pkt</li>
+				<li>poprawna obsługa języków - 2pkt</li>
+            </ul>
+        </li>
+    </ul>
+      </body>
+</html>
