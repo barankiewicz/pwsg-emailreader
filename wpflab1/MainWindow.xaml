@@ -86,23 +86,55 @@
                         <BitmapImage UriSource="/img/avatar.png"/>
                     </Image.Source>
                 </Image>
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Margin="15 0 0 0 ">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="{Binding usr.Name}"/>
-                    <TextBlock Grid.Row="1" Text="{Binding usr.LastName}"/>
+                    <Grid Grid.Row="0" VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="{Binding usr.Name}" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="{Binding usr.LastName}" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+                    </Grid>
                 </Grid>
             </Grid>
 
-            <TabControl Grid.Row="1" x:Name="messagesCol">
-                <TabItem Header="Received">
-                    <ListBox ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="recvdListBox" HorizontalContentAlignment="Stretch">
+            <TabControl BorderThickness="0" Grid.Row="1" x:Name="messagesCol">
+                <TabControl.Resources>
+                    <Style TargetType="TabItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="TabItem">
+                                    <Border Name="Border" BorderThickness="0,0,0,2" BorderBrush="DarkBlue"  Margin="0,0,0,0">
+                                        <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10,5,10,5">
+                                        </ContentPresenter>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="Border" Property="BorderThickness" Value="0,0,0,2"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="False">
+                                            <Setter TargetName="Border" Property="BorderThickness" Value="0,0,0,0"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </TabControl.Resources>
+
+                <TabItem Header="Received" FontSize="15">
+                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="recvdListBox" HorizontalContentAlignment="Stretch">
                     </ListBox>
                 </TabItem>
-                <TabItem Header="Sent" IsEnabled="True">
-                    <ListBox ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="sntListBox"/>
+                <TabItem Header="Sent" FontSize="15" IsEnabled="True">
+                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="sntListBox"/>
                 </TabItem>
             </TabControl>
         </Grid>
@@ -115,7 +147,9 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="1" Background="Gray"/>
-            <Button x:Name="loginButton" Grid.Row="0 " Content="Login" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click" />
+            <Button x:Name="loginButton" Grid.Row="0 " Content="Login" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" Height="70" Click="Button_Click">
+                
+            </Button>
             <ScrollViewer Grid.Row="2" Width="Auto" VerticalAlignment="Stretch">
                 <Label Template="{StaticResource mailBody}"/>
             </ScrollViewer>
