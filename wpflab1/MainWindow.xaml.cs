@@ -63,7 +63,6 @@ namespace wpflab1
                 leftColumn.Width = new GridLength(0, GridUnitType.Star);
                 rightColumn.Width = new GridLength(1, GridUnitType.Star);
                 gridColumn.Width = new GridLength(0, GridUnitType.Pixel);
-
                 messagesSnt.Clear();
                 messagesRcvd.Clear();
                 usr = new EmailUser();
@@ -81,9 +80,10 @@ namespace wpflab1
                 wnd.ShowDialog();
                 if (wnd.messagesRcvd != null)
                 {
-                    rightColumn.Width = new GridLength(7, GridUnitType.Star);
-                    leftColumn.Width = new GridLength(4, GridUnitType.Star);
+                    
                     gridColumn.Width = new GridLength(2, GridUnitType.Pixel);
+                    leftColumn.Width = new GridLength(4, GridUnitType.Star);
+                    rightColumn.Width = new GridLength(7, GridUnitType.Star);
                     leftColumn.MinWidth = 210;
 
                     loginButton.Content = "Logout";
