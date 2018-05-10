@@ -66,7 +66,8 @@ namespace wpflab1
                 messagesSnt.Clear();
                 messagesRcvd.Clear();
                 usr = new EmailUser();
-                loginButton.Content = "Login";
+
+                loginBtnText.Text = "Login";
                 isLoggedIn = false;
             }
             else
@@ -86,7 +87,7 @@ namespace wpflab1
                     rightColumn.Width = new GridLength(7, GridUnitType.Star);
                     leftColumn.MinWidth = 210;
 
-                    loginButton.Content = "Logout";
+                    loginBtnText.Text = "Logout";
                     for(int i = 0; i<wnd.messagesRcvd.Count; i++)
                         messagesRcvd.Add(wnd.messagesRcvd[i]);
 
@@ -98,6 +99,19 @@ namespace wpflab1
                 }
                 Opacity = 1;
             }
+        }
+
+        private void addMailButton_Click(object sender, RoutedEventArgs e)
+        {
+            Opacity = 0.5;
+            NewMailWindow wnd = new NewMailWindow();
+            wnd.ShowInTaskbar = false;
+            wnd.Owner = this;
+            wnd.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            wnd.Width = 0.8 * Width;
+            wnd.Height = 0.8 * Height;
+            wnd.ShowDialog();
+            Opacity = 1;
         }
     }
 }
