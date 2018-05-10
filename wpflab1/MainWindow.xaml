@@ -17,9 +17,9 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="{Binding selectedMessage.Title}" FontSize="25"/>
+                <TextBlock Grid.Row="0" Text="{Binding selectedMessage.Title}" FontSize="25" TextWrapping="Wrap"/>
                 <Label Grid.Row="1" Content="{Binding selectedMessage.From}" ContentStringFormat="Email: {0}" FontSize="15"/>
-                <Label Grid.Row="2" Content="{Binding selectedMessage.Date}"/>
+                <TextBlock Grid.Row="2" Text="{Binding selectedMessage.Date}" TextWrapping="Wrap"/>
                 <TextBlock Grid.Row="3" Text="{Binding selectedMessage.Body}" TextWrapping="Wrap" Margin="5,25,0,0"/>
             </Grid>
         </ControlTemplate>
@@ -31,9 +31,22 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="{Binding Title}" FontSize="15"/>
-                <Label Grid.Row="1" Content="{Binding Date}" FontSize="15"/>
-                <Label Grid.Row="2" Content="{Binding From}" FontSize="15" ContentStringFormat="From: {0}"/>
+                <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="15" TextTrimming="CharacterEllipsis" />
+                <TextBlock Grid.Row="1" Text="{Binding Date}" FontSize="15" TextWrapping="Wrap"/>
+                <TextBlock Grid.Row="2" Text="{Binding From, StringFormat='From: {0}'}" FontSize="15" Margin="0" TextTrimming="CharacterEllipsis"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="selectedItemTemplateSent">
+            <Grid HorizontalAlignment="Stretch" Height="100">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="{Binding Title}" FontSize="15" TextTrimming="CharacterEllipsis" />
+                <TextBlock Grid.Row="1" Text="{Binding Date}" FontSize="15" TextWrapping="Wrap"/>
+                <TextBlock Grid.Row="2" Text="{Binding To, StringFormat='To: {0}'}" FontSize="15" Margin="0" TextTrimming="CharacterEllipsis"/>
             </Grid>
         </DataTemplate>
 
@@ -43,8 +56,8 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Grid.Column="0" Content="{Binding Title}" HorizontalAlignment="Left"></Label>
-                <Label Grid.Column="1" Content="{Binding Date}" HorizontalAlignment="Right"></Label>
+                <TextBlock Grid.Column="0" Text="{Binding Title}" HorizontalAlignment="Left" TextTrimming="CharacterEllipsis"/>
+                <TextBlock Grid.Column="1" Text="{Binding Date}" HorizontalAlignment="Right"/>
             </Grid>
         </DataTemplate>
 
@@ -54,6 +67,22 @@
             <Style.Triggers>
                 <Trigger Property="IsSelected" Value="True">
                     <Setter Property="ContentTemplate" Value="{StaticResource selectedItemTemplate}" />
+                </Trigger>
+                <Trigger Property="ListBox.AlternationIndex" Value="0">
+                    <Setter Property="Background" Value="#b5d1ff "/>
+                </Trigger>
+                <Trigger Property="ListBox.AlternationIndex" Value="1">
+                    <Setter Property="Background" Value="#edf3ff"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="leftListBoxStyleSent" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="ContentTemplate" Value="{StaticResource unselectedItemTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource selectedItemTemplateSent}" />
                 </Trigger>
                 <Trigger Property="ListBox.AlternationIndex" Value="0">
                     <Setter Property="Background" Value="#b5d1ff "/>
@@ -130,11 +159,12 @@
                 </TabControl.Resources>
 
                 <TabItem Header="Received" FontSize="15">
-                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="recvdListBox" HorizontalContentAlignment="Stretch">
+                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" x:Name="recvdListBox" KeyDown="recvdListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     </ListBox>
                 </TabItem>
                 <TabItem Header="Sent" FontSize="15" IsEnabled="True">
-                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" Margin="0,0,0,0" x:Name="sntListBox"/>
+                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyleSent}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" x:Name="sntListBox" KeyDown="sntListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    </ListBox>
                 </TabItem>
             </TabControl>
         </Grid>
@@ -169,7 +199,7 @@
                     </Grid>
                 </Button>
 
-                <Button x:Name="addMailButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" Height="70" Background="White">
+                <Button x:Name="addMailButton" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70" Height="70" Background="White" Click="addMailButton_Click">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -180,7 +210,7 @@
                                 <BitmapImage UriSource="/img/add.png"/>
                             </Image.Source>
                         </Image>
-                        <TextBlock Grid.Row="1" Text="Login" HorizontalAlignment="Center"/>
+                        <TextBlock Grid.Row="1" Text="New Email" HorizontalAlignment="Center"/>
                     </Grid>
                 </Button>
 

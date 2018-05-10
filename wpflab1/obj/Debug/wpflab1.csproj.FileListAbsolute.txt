@@ -35,3 +35,5 @@ X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\wpflab1.csproj.Generat
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\wpflab1.csproj.CoreCompileInputs.cache
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\wpflab1.exe
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\wpflab1.pdb
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\NewMailWindow.g.cs
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\NewMailWindow.baml

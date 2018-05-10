@@ -50,6 +50,7 @@ namespace wpflab1
             leftColumn.Width = new GridLength(0, GridUnitType.Star);
             rightColumn.Width = new GridLength(1, GridUnitType.Star);
             gridColumn.Width = new GridLength(0, GridUnitType.Pixel);
+            addMailButton.IsEnabled = false;
             DataContext = this;
             recvdListBox.ItemsSource = messagesRcvd;
             sntListBox.ItemsSource = messagesSnt;
@@ -67,6 +68,7 @@ namespace wpflab1
                 messagesRcvd.Clear();
                 usr = new EmailUser();
 
+                addMailButton.IsEnabled = false;
                 loginBtnText.Text = "Login";
                 isLoggedIn = false;
             }
@@ -87,6 +89,7 @@ namespace wpflab1
                     rightColumn.Width = new GridLength(7, GridUnitType.Star);
                     leftColumn.MinWidth = 210;
 
+                    addMailButton.IsEnabled = true;
                     loginBtnText.Text = "Logout";
                     for(int i = 0; i<wnd.messagesRcvd.Count; i++)
                         messagesRcvd.Add(wnd.messagesRcvd[i]);
@@ -111,7 +114,28 @@ namespace wpflab1
             wnd.Width = 0.8 * Width;
             wnd.Height = 0.8 * Height;
             wnd.ShowDialog();
+            if(wnd.sentMessage != null)
+                messagesSnt.Add(wnd.sentMessage);
+
             Opacity = 1;
+        }
+
+        private void recvdListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Delete)
+            {
+                messagesRcvd.Remove(selectedMessage);
+                selectedMessage = null;
+            }
+        }
+
+        private void sntListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                messagesSnt.Remove(selectedMessage);
+                selectedMessage = null;
+            }
         }
     }
 }

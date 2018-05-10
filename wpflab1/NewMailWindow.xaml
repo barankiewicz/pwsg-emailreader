@@ -5,8 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpflab1"
         mc:Ignorable="d"
-        Title="NewMailWindow" Height="300" Width="300">
+        Title="NewMailWindow" Height="800" Width="600" AllowsTransparency="True" WindowStyle="None">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="2" HorizontalAlignment="Right">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Content="Cancel" HorizontalAlignment="Stretch" Foreground="DarkGreen" Margin="5 5" x:Name="cancelButton" Click="cancelButton_Click"/>
+                <Button Grid.Column="1" Content="Send" HorizontalAlignment="Stretch" Foreground="DarkGreen" Margin="5 5" x:Name="sendButton" Click="sendButton_Click"/>
+            </Grid>
+            <TextBlock Grid.Row="0" Text="New Email" Foreground="DarkGreen" FontSize="30" Margin="30,30,30, 30"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="13*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="To:" HorizontalAlignment="Right" Margin="0 5 20 5"/>
+                    <TextBlock Grid.Row="1" Text="Title:" HorizontalAlignment="Right" Margin="0 7 20 5"/>
+                    <TextBlock Grid.Row="2" Text="Message:" HorizontalAlignment="Right" Margin="0 9 20 5"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Grid.Row="0" HorizontalAlignment="Stretch" Margin="0 5 20 5" x:Name="toTextBox" TextWrapping="Wrap"/>
+                    <TextBox Grid.Row="1" HorizontalAlignment="Stretch" Margin="0 5 20 5" x:Name="titleTextBox" TextWrapping="Wrap"/>
+                    <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" Margin="0 5 20 5">
+                        <TextBox  x:Name="bodyTextBox" TextWrapping="Wrap"/>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </Grid>
         
+        <!--<TextBlock Grid.Row="0" Text="New Email" Foreground="DarkGreen" FontSize="30" Margin="30,30,30, 30"/>-->
+            <!--<Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="To:" HorizontalAlignment="Right" Margin="40 0 0 0"/>
+                <TextBox Grid.Column="1"/>
+            </Grid>-->
     </Grid>
 </Window>
