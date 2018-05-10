@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,7 +48,8 @@ namespace wpflab1
 
             InitializeComponent();
             DataContext = this;
-            sendButton.IsEnabled = true;
+            sendButton.IsEnabled = false;
+
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
@@ -63,6 +66,27 @@ namespace wpflab1
             sentMessage.To = toTextBox.Text;
             sentMessage.Date = DateTime.Now.ToShortDateString();
             Close();
+        }
+
+        private void toTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Regex regex = new Regex(@"^[\w.-]+@(?=[a-z\d][^.]*\.)[a-z\d.-]*(?<![.-])$");
+            Match match = regex.Match(toTextBox.Text); 
+
+            if (match.Success)
+            {
+                toTextBox.Foreground = new SolidColorBrush(Colors.Black);
+                toTextBox.BorderThickness = new Thickness(1);
+                toTextBox.BorderBrush = new SolidColorBrush(Colors.Gray);
+                sendButton.IsEnabled = true;
+            }
+            else
+            {
+                toTextBox.Foreground = new SolidColorBrush(Colors.Red);
+                toTextBox.BorderThickness = new Thickness(2);
+                toTextBox.BorderBrush = new SolidColorBrush(Colors.Red);
+                sendButton.IsEnabled = false;
+            }
         }
     }
 }

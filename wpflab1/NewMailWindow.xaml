@@ -49,7 +49,18 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" HorizontalAlignment="Stretch" Margin="0 5 20 5" x:Name="toTextBox" TextWrapping="Wrap"/>
+                    <Grid Grid.Row="0" HorizontalAlignment="Stretch" Margin="0 5 0 5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Margin="0 5 0 5" x:Name="toTextBox" TextWrapping="Wrap" TextChanged="toTextBox_TextChanged"/>
+                        <Image Grid.Column="1" Margin="0 5">
+                            <Image.Source>
+                                <BitmapImage UriSource="/img/login.png"/>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
                     <TextBox Grid.Row="1" HorizontalAlignment="Stretch" Margin="0 5 20 5" x:Name="titleTextBox" TextWrapping="Wrap"/>
                     <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" Margin="0 5 20 5">
                         <TextBox  x:Name="bodyTextBox" TextWrapping="Wrap"/>
