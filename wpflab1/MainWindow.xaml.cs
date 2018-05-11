@@ -62,6 +62,40 @@ namespace wpflab1
             DataContext = this;
             recvdListBox.ItemsSource = messagesRcvd;
             sntListBox.ItemsSource = messagesSnt;
+            CollectionView sentView = (CollectionView)CollectionViewSource.GetDefaultView(sntListBox.ItemsSource);
+            CollectionView rcvdView = (CollectionView)CollectionViewSource.GetDefaultView(recvdListBox.ItemsSource);
+            sentView.Filter = UserFilterRecvd;
+            rcvdView.Filter = UserFilterSnt;
+        }
+
+        private bool UserFilterRecvd(object item)
+        {
+            if (String.IsNullOrEmpty(searchBar.Text))
+                return true;
+            else
+            {
+                string[] keywords = searchBar.Text.Split();
+                EmailMessage message = item as EmailMessage;
+                foreach(string s in keywords)
+                    if (message.Date.Contains(s) || message.Title.Contains(s) || message.From.Contains(s))
+                        return true;
+                return false;
+            }
+        }
+
+        private bool UserFilterSnt(object item)
+        {
+            if (String.IsNullOrEmpty(searchBar.Text))
+                return true;
+            else
+            {
+                string[] keywords = searchBar.Text.Split();
+                EmailMessage message = item as EmailMessage;
+                foreach (string s in keywords)
+                    if (message.Date.Contains(s) || message.Title.Contains(s) || message.To.Contains(s))
+                        return true;
+                return false;
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -156,31 +190,11 @@ namespace wpflab1
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(searchBar.Text == "")
-            {
-                messagesRcvd = allMessagesRcvd;
-                messagesSnt = allMessagesSnt;
-                return;
-            }
-
             string[] keywords = searchBar.Text.Split();
             if(messagesCol.SelectedIndex == 0)
-            {
-                messagesRcvd = new ObservableCollection<EmailMessage>();
-                foreach (EmailMessage message in allMessagesRcvd)
-                    foreach(string s in keywords)
-                        if(message.Date.Contains(s) || message.Title.Contains(s) || message.From.Contains(s))
-                            messagesRcvd.Add(message);
-            }
+                CollectionViewSource.GetDefaultView(recvdListBox.ItemsSource).Refresh();
             else
-            {
-                messagesSnt = new ObservableCollection<EmailMessage>();
-                foreach (EmailMessage message in allMessagesSnt)
-                    foreach (string s in keywords)
-                        if (message.Date.Contains(s) || message.Title.Contains(s) || message.To.Contains(s))
-                            messagesSnt.Add(message);
-            }
-
+                CollectionViewSource.GetDefaultView(sntListBox.ItemsSource).Refresh();
         }
     }
 }
