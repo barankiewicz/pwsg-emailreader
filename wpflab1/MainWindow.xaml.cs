@@ -33,10 +33,13 @@ namespace wpflab1
         bool isLoggedIn;
         private EmailMessage _selectedMessage;
         private EmailUser _usr;
+        private ObservableCollection<EmailMessage> _messagesRcvd;
+        private ObservableCollection<EmailMessage> _messagesSnt;
+
         public ObservableCollection<EmailMessage> allMessagesRcvd { get; set; }
         public ObservableCollection<EmailMessage> allMessagesSnt { get; set; }
-        public ObservableCollection<EmailMessage> messagesRcvd { get; set; }
-        public ObservableCollection<EmailMessage> messagesSnt { get; set; }
+        public ObservableCollection<EmailMessage> messagesRcvd { get { return _messagesRcvd; } set { _messagesRcvd = value; RaisePropertyChanged("messagesRcvd"); } }
+        public ObservableCollection<EmailMessage> messagesSnt { get { return _messagesSnt; } set { _messagesSnt = value; RaisePropertyChanged("messagesSnt"); } }
         public EmailMessage selectedMessage { get { return _selectedMessage; } set { _selectedMessage = value; RaisePropertyChanged("selectedMessage"); } }
         public EmailUser usr { get { return _usr; } set { _usr = value; RaisePropertyChanged("usr"); } }
 
@@ -126,7 +129,9 @@ namespace wpflab1
             wnd.Height = 0.8 * Height;
             wnd.ShowDialog();
             if(wnd.sentMessage != null)
-                messagesSnt.Add(wnd.sentMessage);
+                allMessagesSnt.Add(wnd.sentMessage);
+
+            messagesSnt = allMessagesSnt;
 
             Opacity = 1;
         }
@@ -151,7 +156,31 @@ namespace wpflab1
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            if(searchBar.Text == "")
+            {
+                messagesRcvd = allMessagesRcvd;
+                messagesSnt = allMessagesSnt;
+                return;
+            }
+
+            string[] keywords = searchBar.Text.Split();
+            if(messagesCol.SelectedIndex == 0)
+            {
+                messagesRcvd = new ObservableCollection<EmailMessage>();
+                foreach (EmailMessage message in allMessagesRcvd)
+                    foreach(string s in keywords)
+                        if(message.Date.Contains(s) || message.Title.Contains(s) || message.From.Contains(s))
+                            messagesRcvd.Add(message);
+            }
+            else
+            {
+                messagesSnt = new ObservableCollection<EmailMessage>();
+                foreach (EmailMessage message in allMessagesSnt)
+                    foreach (string s in keywords)
+                        if (message.Date.Contains(s) || message.Title.Contains(s) || message.To.Contains(s))
+                            messagesSnt.Add(message);
+            }
+
         }
     }
 }

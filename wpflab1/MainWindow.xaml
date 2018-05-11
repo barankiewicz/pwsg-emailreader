@@ -158,12 +158,12 @@
                     </Style>
                 </TabControl.Resources>
 
-                <TabItem Header="Received" FontSize="15">
-                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" x:Name="recvdListBox" KeyDown="recvdListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TabItem Header="Received" FontSize="15" x:Name="receivedTab">
+                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AlternationCount="2" x:Name="recvdListBox" KeyDown="recvdListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     </ListBox>
                 </TabItem>
-                <TabItem Header="Sent" FontSize="15" IsEnabled="True">
-                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyleSent}" SelectedItem="{Binding selectedMessage, Mode=TwoWay}" AlternationCount="2" x:Name="sntListBox" KeyDown="sntListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <TabItem Header="Sent" FontSize="15" IsEnabled="True" x:Name="sentTab">
+                    <ListBox BorderThickness="0" ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyleSent}" SelectedItem="{Binding selectedMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AlternationCount="2" x:Name="sntListBox" KeyDown="sntListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     </ListBox>
                 </TabItem>
             </TabControl>
