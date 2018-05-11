@@ -64,8 +64,8 @@ namespace wpflab1
             sntListBox.ItemsSource = messagesSnt;
             CollectionView sentView = (CollectionView)CollectionViewSource.GetDefaultView(sntListBox.ItemsSource);
             CollectionView rcvdView = (CollectionView)CollectionViewSource.GetDefaultView(recvdListBox.ItemsSource);
-            sentView.Filter = UserFilterRecvd;
-            rcvdView.Filter = UserFilterSnt;
+            sentView.Filter = UserFilterSnt;
+            rcvdView.Filter = UserFilterRecvd;
         }
 
         private bool UserFilterRecvd(object item)
@@ -163,9 +163,7 @@ namespace wpflab1
             wnd.Height = 0.8 * Height;
             wnd.ShowDialog();
             if(wnd.sentMessage != null)
-                allMessagesSnt.Add(wnd.sentMessage);
-
-            messagesSnt = allMessagesSnt;
+                messagesSnt.Add(wnd.sentMessage);
 
             Opacity = 1;
         }
@@ -190,7 +188,6 @@ namespace wpflab1
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string[] keywords = searchBar.Text.Split();
             if(messagesCol.SelectedIndex == 0)
                 CollectionViewSource.GetDefaultView(recvdListBox.ItemsSource).Refresh();
             else
