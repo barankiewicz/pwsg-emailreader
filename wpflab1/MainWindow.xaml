@@ -214,8 +214,21 @@
                     </Grid>
                 </Button>
 
-                <TextBox Grid.Column="2" Height="25" Margin="5,0" x:Name="searchBar" TextChanged="TextBox_TextChanged">
-                </TextBox>
+                <Border Grid.Column="2" Height="25" Margin="5,0" BorderThickness="1" BorderBrush="Gray" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="searchBox">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0">
+                            <Image.Source>
+                                <BitmapImage UriSource="/img/search.png"/>
+                            </Image.Source>
+                        </Image>
+                        <TextBox Grid.Column="1" x:Name="searchBar" TextChanged="TextBox_TextChanged" VerticalAlignment="Center" BorderThickness="0">
+                        </TextBox>
+                    </Grid>
+                </Border>
 
                 <Grid Grid.Column="3">
                     <Grid.RowDefinitions>

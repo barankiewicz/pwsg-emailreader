@@ -59,6 +59,7 @@ namespace wpflab1
             rightColumn.Width = new GridLength(1, GridUnitType.Star);
             gridColumn.Width = new GridLength(0, GridUnitType.Pixel);
             addMailButton.IsEnabled = false;
+            searchBox.IsEnabled = false;
             DataContext = this;
             recvdListBox.ItemsSource = messagesRcvd;
             sntListBox.ItemsSource = messagesSnt;
@@ -111,6 +112,7 @@ namespace wpflab1
                 usr = new EmailUser();
 
                 addMailButton.IsEnabled = false;
+                searchBox.IsEnabled = false;
                 loginBtnText.Text = "Login";
                 isLoggedIn = false;
             }
@@ -132,6 +134,7 @@ namespace wpflab1
                     leftColumn.MinWidth = 210;
 
                     addMailButton.IsEnabled = true;
+                    searchBox.IsEnabled = true;
                     loginBtnText.Text = "Logout";
                     for(int i = 0; i<wnd.messagesRcvd.Count; i++)
                     {
