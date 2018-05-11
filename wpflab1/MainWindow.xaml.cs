@@ -33,6 +33,8 @@ namespace wpflab1
         bool isLoggedIn;
         private EmailMessage _selectedMessage;
         private EmailUser _usr;
+        public ObservableCollection<EmailMessage> allMessagesRcvd { get; set; }
+        public ObservableCollection<EmailMessage> allMessagesSnt { get; set; }
         public ObservableCollection<EmailMessage> messagesRcvd { get; set; }
         public ObservableCollection<EmailMessage> messagesSnt { get; set; }
         public EmailMessage selectedMessage { get { return _selectedMessage; } set { _selectedMessage = value; RaisePropertyChanged("selectedMessage"); } }
@@ -41,6 +43,9 @@ namespace wpflab1
         public MainWindow()
         {
             _selectedMessage = new EmailMessage();
+
+            allMessagesRcvd = new ObservableCollection<EmailMessage>();
+            allMessagesRcvd = new ObservableCollection<EmailMessage>();
             messagesRcvd = new ObservableCollection<EmailMessage>();
             messagesSnt = new ObservableCollection<EmailMessage>();
             usr = new EmailUser();
@@ -92,10 +97,16 @@ namespace wpflab1
                     addMailButton.IsEnabled = true;
                     loginBtnText.Text = "Logout";
                     for(int i = 0; i<wnd.messagesRcvd.Count; i++)
+                    {
+                        allMessagesRcvd.Add(wnd.messagesRcvd[i]);
                         messagesRcvd.Add(wnd.messagesRcvd[i]);
-
+                    }
+                        
                     for (int i = 0; i < wnd.messagesSnt.Count; i++)
+                    {
+                        allMessagesRcvd.Add(wnd.messagesSnt[i]);
                         messagesRcvd.Add(wnd.messagesSnt[i]);
+                    }
 
                     usr = wnd.usr;
                     isLoggedIn = true;
@@ -136,6 +147,11 @@ namespace wpflab1
                 messagesSnt.Remove(selectedMessage);
                 selectedMessage = null;
             }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
         }
     }
 }

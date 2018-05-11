@@ -214,7 +214,7 @@
                     </Grid>
                 </Button>
 
-                <TextBox Grid.Column="2" Height="25" Margin="5,0">
+                <TextBox Grid.Column="2" Height="25" Margin="5,0" x:Name="searchBar" TextChanged="TextBox_TextChanged">
                 </TextBox>
 
                 <Grid Grid.Column="3">

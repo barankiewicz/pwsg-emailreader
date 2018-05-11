@@ -37,3 +37,23 @@ X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\wpflab1.exe
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\wpflab1.pdb
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\NewMailWindow.g.cs
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Debug\NewMailWindow.baml
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\bin\Debug\wpflab1.exe.config
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\bin\Debug\wpflab1.exe
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\bin\Debug\wpflab1.pdb
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\bin\Debug\wpfTask1.dll
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1.csprojResolveAssemblyReference.cache
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\MainWindow.g.cs
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\NewMailWindow.g.cs
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\Window1.g.cs
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\App.g.cs
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1_MarkupCompile.cache
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1_MarkupCompile.lref
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\MainWindow.baml
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\NewMailWindow.baml
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\Window1.baml
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1.g.resources
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1.Properties.Resources.resources
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1.csproj.GenerateResource.Cache
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1.csproj.CoreCompileInputs.cache
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1.exe
+C:\Users\spankie\Projekty (Programowanie)\pwsg-emailreader\wpflab1\obj\Debug\wpflab1.pdb
