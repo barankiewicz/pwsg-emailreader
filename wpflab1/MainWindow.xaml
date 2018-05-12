@@ -7,7 +7,7 @@
         xmlns:properties="clr-namespace:wpflab1.Properties"
         xmlns:local="clr-namespace:wpflab1"
         mc:Ignorable="d"
-        Title="{x:Static resx:Resource.AppName}" Height="600" Width="820" MinWidth="820" MinHeight="400">
+        Title="{x:Static resx:Resource.AppName}" Height="600" Width="820" MinWidth="820" MinHeight="400" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <Style TargetType="Image">
@@ -151,9 +151,11 @@
                                     </Border>
                                     <ControlTemplate.Triggers>
                                         <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Foreground" Value="CadetBlue"/>
                                             <Setter TargetName="Border" Property="BorderThickness" Value="0,0,0,2"/>
                                         </Trigger>
                                         <Trigger Property="IsSelected" Value="False">
+                                            <Setter Property="Foreground" Value="Black"/>
                                             <Setter TargetName="Border" Property="BorderThickness" Value="0,0,0,0"/>
                                         </Trigger>
                                     </ControlTemplate.Triggers>
