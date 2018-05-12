@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resx="clr-namespace:wpflab1.Resources"
         xmlns:properties="clr-namespace:wpflab1.Properties"
         xmlns:local="clr-namespace:wpflab1"
         mc:Ignorable="d"
-        Title="Mail Manager" Height="600" Width="820" MinWidth="820" MinHeight="400">
+        Title="{x:Static resx:Resource.AppName}" Height="600" Width="820" MinWidth="820" MinHeight="400">
 
     <Window.Resources>
         <Style TargetType="Image">
@@ -162,11 +163,11 @@
                     </Style>
                 </TabControl.Resources>
 
-                <TabItem Header="Received" FontSize="15" x:Name="receivedTab">
+                <TabItem Header="{x:Static resx:Resource.ReceivedTab}" FontSize="15" x:Name="receivedTab">
                     <ListBox BorderThickness="0" ItemsSource="{Binding messagesRcvd}" ItemContainerStyle="{StaticResource leftListBoxStyle}" SelectedItem="{Binding selectedMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AlternationCount="2" x:Name="recvdListBox" KeyDown="recvdListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     </ListBox>
                 </TabItem>
-                <TabItem Header="Sent" FontSize="15" IsEnabled="True" x:Name="sentTab">
+                <TabItem Header="{x:Static resx:Resource.SentTab}" FontSize="15" IsEnabled="True" x:Name="sentTab">
                     <ListBox BorderThickness="0" ItemsSource="{Binding messagesSnt}" ItemContainerStyle="{StaticResource leftListBoxStyleSent}" SelectedItem="{Binding selectedMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" AlternationCount="2" x:Name="sntListBox" KeyDown="sntListBox_KeyDown" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     </ListBox>
                 </TabItem>
@@ -235,12 +236,10 @@
                 </Border>
 
                 <Grid Grid.Column="3">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <RadioButton Grid.Row="0" Content="English" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                    <RadioButton Grid.Row="1" Content="Polish" IsChecked="False" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <RadioButton Grid.Row="0" Content="{x:Static resx:Resource.EnglishLang}" IsChecked="True" VerticalAlignment="Center" HorizontalAlignment="Left" Checked="RadioButtonEng_Checked"/>
+                        <RadioButton Grid.Row="1" Content="{x:Static resx:Resource.PolLang}" IsChecked="False" VerticalAlignment="Center" HorizontalAlignment="Left" Checked="RadioButtonPol_Checked"/>
+                    </StackPanel>
                 </Grid>
             </Grid>
             <ScrollViewer Grid.Row="2" Width="Auto" VerticalAlignment="Stretch">

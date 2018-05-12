@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Resources;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -46,7 +48,6 @@ namespace wpflab1
         public MainWindow()
         {
             _selectedMessage = new EmailMessage();
-
             allMessagesRcvd = new ObservableCollection<EmailMessage>();
             allMessagesRcvd = new ObservableCollection<EmailMessage>();
             messagesRcvd = new ObservableCollection<EmailMessage>();
@@ -67,6 +68,8 @@ namespace wpflab1
             CollectionView rcvdView = (CollectionView)CollectionViewSource.GetDefaultView(recvdListBox.ItemsSource);
             sentView.Filter = UserFilterSnt;
             rcvdView.Filter = UserFilterRecvd;
+            System.Threading.Thread.CurrentThread.CurrentUICulture =
+            new System.Globalization.CultureInfo("en-US");
         }
 
         private bool UserFilterRecvd(object item)
@@ -195,6 +198,17 @@ namespace wpflab1
                 CollectionViewSource.GetDefaultView(recvdListBox.ItemsSource).Refresh();
             else
                 CollectionViewSource.GetDefaultView(sntListBox.ItemsSource).Refresh();
+        }
+
+        private void RadioButtonEng_Checked(object sender, RoutedEventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
+
+        }
+
+        private void RadioButtonPol_Checked(object sender, RoutedEventArgs e)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pl-PL");
         }
     }
 }

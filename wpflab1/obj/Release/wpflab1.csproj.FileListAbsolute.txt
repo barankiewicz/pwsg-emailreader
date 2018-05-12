@@ -19,4 +19,16 @@ X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.csproj.Gener
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.csproj.CoreCompileInputs.cache
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.exe
 X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.pdb
-X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.Resources.en-US.resources
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\Resources\Resource.resx
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\Resources\Resource.Designer.cs
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.Resources.Resource.resources
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\Resources\Resource.pl-PL.resx
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\Resources\Resource.en-US.resx
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\Resources\Resource.pl-PL.Designer.cs
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\Resources\Resource.en-US.Designer.cs
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\pl-PL\wpflab1.resources.dll
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\bin\Release\en-US\wpflab1.resources.dll
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.Resources.Resource.pl-PL.resources
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\wpflab1.Resources.Resource.en-US.resources
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\pl-PL\wpflab1.resources.dll
+X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\en-US\wpflab1.resources.dll

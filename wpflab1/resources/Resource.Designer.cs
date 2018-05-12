@@ -22,24 +22,24 @@ namespace wpflab1.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class en_US {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal en_US() {
+        internal Resource() {
         }
         
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("wpflab1.Resources.en-US", typeof(en_US).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("wpflab1.Resources.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace wpflab1.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Mail Manager.
         /// </summary>
-        internal static string AppName {
+        public static string AppName {
             get {
                 return ResourceManager.GetString("AppName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Bad email address.
         /// </summary>
-        internal static string BadEmailText {
+        public static string BadEmailText {
             get {
                 return ResourceManager.GetString("BadEmailText", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        internal static string CancelBtn {
+        public static string CancelBtn {
             get {
                 return ResourceManager.GetString("CancelBtn", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to This box cannot be empty.
         /// </summary>
-        internal static string EmptyBox {
+        public static string EmptyBox {
             get {
                 return ResourceManager.GetString("EmptyBox", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
-        internal static string EnglishLang {
+        public static string EnglishLang {
             get {
                 return ResourceManager.GetString("EnglishLang", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to From:.
         /// </summary>
-        internal static string FromText {
+        public static string FromText {
             get {
                 return ResourceManager.GetString("FromText", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string LoginScreenLogin {
+        public static string LoginScreenLogin {
             get {
                 return ResourceManager.GetString("LoginScreenLogin", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string LoginScreenLoginBtn {
+        public static string LoginScreenLoginBtn {
             get {
                 return ResourceManager.GetString("LoginScreenLoginBtn", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        internal static string LoginScreenPass {
+        public static string LoginScreenPass {
             get {
                 return ResourceManager.GetString("LoginScreenPass", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string LoginScreenTitle {
+        public static string LoginScreenTitle {
             get {
                 return ResourceManager.GetString("LoginScreenTitle", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string LoginText {
+        public static string LoginText {
             get {
                 return ResourceManager.GetString("LoginText", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
-        internal static string LogoutText {
+        public static string LogoutText {
             get {
                 return ResourceManager.GetString("LogoutText", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Message cannot be less than 10 characters long.
         /// </summary>
-        internal static string MessageTooShort {
+        public static string MessageTooShort {
             get {
                 return ResourceManager.GetString("MessageTooShort", resourceCulture);
             }
@@ -180,16 +180,16 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to New Email.
         /// </summary>
-        internal static string NewEmailText {
+        public static string NewEmailText {
             get {
                 return ResourceManager.GetString("NewEmailText", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Message.
+        ///   Looks up a localized string similar to Message:.
         /// </summary>
-        internal static string NewMailWindowMessage {
+        public static string NewMailWindowMessage {
             get {
                 return ResourceManager.GetString("NewMailWindowMessage", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Send.
         /// </summary>
-        internal static string NewMailWindowSentButn {
+        public static string NewMailWindowSentButn {
             get {
                 return ResourceManager.GetString("NewMailWindowSentButn", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Polish.
         /// </summary>
-        internal static string PolLang {
+        public static string PolLang {
             get {
                 return ResourceManager.GetString("PolLang", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Received.
         /// </summary>
-        internal static string ReceivedTab {
+        public static string ReceivedTab {
             get {
                 return ResourceManager.GetString("ReceivedTab", resourceCulture);
             }
@@ -225,16 +225,25 @@ namespace wpflab1.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Sent.
         /// </summary>
-        internal static string SentTab {
+        public static string SentTab {
             get {
                 return ResourceManager.GetString("SentTab", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Title:.
+        /// </summary>
+        public static string Title {
+            get {
+                return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to To:.
         /// </summary>
-        internal static string ToText {
+        public static string ToText {
             get {
                 return ResourceManager.GetString("ToText", resourceCulture);
             }

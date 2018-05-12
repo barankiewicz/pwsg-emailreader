@@ -118,63 +118,66 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AppName" xml:space="preserve">
-    <value>Mail Manager</value>
+    <value>Mejl Menedżer</value>
   </data>
   <data name="BadEmailText" xml:space="preserve">
-    <value>Bad email address</value>
+    <value>Błędny adres email</value>
   </data>
   <data name="CancelBtn" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Anuluj</value>
   </data>
   <data name="EmptyBox" xml:space="preserve">
-    <value>This box cannot be empty</value>
+    <value>To pole nie może być puste</value>
   </data>
   <data name="EnglishLang" xml:space="preserve">
-    <value>English</value>
+    <value>Angielski</value>
   </data>
   <data name="FromText" xml:space="preserve">
-    <value>From:</value>
+    <value>Od:</value>
   </data>
   <data name="LoginScreenLogin" xml:space="preserve">
-    <value>Login</value>
+    <value>Użytkownik</value>
   </data>
   <data name="LoginScreenLoginBtn" xml:space="preserve">
-    <value>Login</value>
+    <value>Logowanie</value>
   </data>
   <data name="LoginScreenPass" xml:space="preserve">
-    <value>Password</value>
+    <value>Hasło</value>
   </data>
   <data name="LoginScreenTitle" xml:space="preserve">
-    <value>Login</value>
+    <value>Logowanie</value>
   </data>
   <data name="LoginText" xml:space="preserve">
-    <value>Login</value>
+    <value>Zaloguj</value>
   </data>
   <data name="LogoutText" xml:space="preserve">
-    <value>Logout</value>
+    <value>Wyloguj</value>
   </data>
   <data name="MessageTooShort" xml:space="preserve">
-    <value>Message cannot be less than 10 characters long</value>
+    <value>Wiadomość nie może być krótsza niż 10 znaków</value>
   </data>
   <data name="NewEmailText" xml:space="preserve">
-    <value>New Email</value>
+    <value>Nowy email</value>
   </data>
   <data name="NewMailWindowMessage" xml:space="preserve">
-    <value>Message</value>
+    <value>Wiadomość:</value>
   </data>
   <data name="NewMailWindowSentButn" xml:space="preserve">
-    <value>Send</value>
+    <value>Wyślij</value>
   </data>
   <data name="PolLang" xml:space="preserve">
-    <value>Polish</value>
+    <value>Polski</value>
   </data>
   <data name="ReceivedTab" xml:space="preserve">
-    <value>Received</value>
+    <value>Odebrane</value>
   </data>
   <data name="SentTab" xml:space="preserve">
-    <value>Sent</value>
+    <value>Wysłane</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Temat:</value>
   </data>
   <data name="ToText" xml:space="preserve">
-    <value>To:</value>
+    <value>Do:</value>
   </data>
 </root>
