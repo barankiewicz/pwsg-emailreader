@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- The name of this ResourceDictionary. Should not be localized. -->
+    <sys:String x:Key="ResourceDictionaryName">Loc-en-US</sys:String>
+    
+    
+    <!--Main screen (before login)-->
+    <sys:String x:Key="MainWindow_Title">Mail Manager</sys:String>
+    <sys:String x:Key="LoginText">Login</sys:String>
+    <sys:String x:Key="LogoutText">Logout</sys:String>
+    <sys:String x:Key="NewEmail">New Email</sys:String>
+    <sys:String x:Key="EngLang">English</sys:String>
+    <sys:String x:Key="PolLang">Polish</sys:String>
+
+    <!--Main screen (after login)-->
+    <sys:String x:Key="RecvdTab">Received</sys:String>
+    <sys:String x:Key="SentTab">Sent</sys:String>
+    <sys:String x:Key="From">From: </sys:String>
+    <sys:String x:Key="To">To: </sys:String>
+    
+
+    <!--Login Screen-->
+    <sys:String x:Key="LoginWindowName">Login</sys:String>
+    <sys:String x:Key="LoginWindowLogin">Login</sys:String>
+    <sys:String x:Key="LoginWindowPassword">Password</sys:String>
+    <sys:String x:Key="LoginWindowLoginBtn">Login</sys:String>
+    <sys:String x:Key="LoginWindowCancelBtn">Cancel</sys:String>
+    <sys:String x:Key="LoginWindowErrMessage">Login Failed!</sys:String>
+
+    <!--New mail screen-->
+    <sys:String x:Key="NewMailWindowName">New Email</sys:String>
+    <sys:String x:Key="NewMailTo">To:</sys:String>
+    <sys:String x:Key="NewMailTitle">Title:</sys:String>
+    <sys:String x:Key="NewMailMessage">Message:</sys:String>
+    <sys:String x:Key="NewMailSend">Send</sys:String>
+    <sys:String x:Key="NewMailCancel">Cancel</sys:String>
+
+    <!--New mail screen - error messages-->
+    <sys:String x:Key="WrongMailErr">Wrong email address format</sys:String>
+    <sys:String x:Key="FieldEmptyErr">This field cannot be empty</sys:String>
+    <sys:String x:Key="TooShortErr">Message has to be at least 10 character long</sys:String>
+
+</ResourceDictionary>
