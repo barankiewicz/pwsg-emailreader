@@ -106,7 +106,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to From.
+        ///   Looks up a localized string similar to From:.
         /// </summary>
         internal static string FromText {
             get {
@@ -232,7 +232,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To.
+        ///   Looks up a localized string similar to To:.
         /// </summary>
         internal static string ToText {
             get {

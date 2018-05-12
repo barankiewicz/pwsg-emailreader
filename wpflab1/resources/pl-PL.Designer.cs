@@ -61,7 +61,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mail Manager.
+        ///   Looks up a localized string similar to Mejl Menedżer.
         /// </summary>
         internal static string AppName {
             get {
@@ -70,7 +70,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bad email address.
+        ///   Looks up a localized string similar to Błędny adres email.
         /// </summary>
         internal static string BadEmailText {
             get {
@@ -79,7 +79,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to Anuluj.
         /// </summary>
         internal static string CancelBtn {
             get {
@@ -88,7 +88,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This box cannot be empty.
+        ///   Looks up a localized string similar to To pole nie może być puste.
         /// </summary>
         internal static string EmptyBox {
             get {
@@ -97,7 +97,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to English.
+        ///   Looks up a localized string similar to Angielski.
         /// </summary>
         internal static string EnglishLang {
             get {
@@ -106,7 +106,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to From.
+        ///   Looks up a localized string similar to Od:.
         /// </summary>
         internal static string FromText {
             get {
@@ -115,7 +115,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Użytkownik.
         /// </summary>
         internal static string LoginScreenLogin {
             get {
@@ -124,7 +124,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Logowanie.
         /// </summary>
         internal static string LoginScreenLoginBtn {
             get {
@@ -133,7 +133,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password.
+        ///   Looks up a localized string similar to Hasło.
         /// </summary>
         internal static string LoginScreenPass {
             get {
@@ -142,7 +142,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Logowanie.
         /// </summary>
         internal static string LoginScreenTitle {
             get {
@@ -151,7 +151,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Zaloguj.
         /// </summary>
         internal static string LoginText {
             get {
@@ -160,7 +160,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logout.
+        ///   Looks up a localized string similar to Wyloguj.
         /// </summary>
         internal static string LogoutText {
             get {
@@ -169,7 +169,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Message cannot be less than 10 characters long.
+        ///   Looks up a localized string similar to Wiadomość nie może być krótsza niż 10 znaków.
         /// </summary>
         internal static string MessageTooShort {
             get {
@@ -178,7 +178,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New Email.
+        ///   Looks up a localized string similar to Nowy email.
         /// </summary>
         internal static string NewEmailText {
             get {
@@ -187,7 +187,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Message.
+        ///   Looks up a localized string similar to Wiadomość.
         /// </summary>
         internal static string NewMailWindowMessage {
             get {
@@ -196,7 +196,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Send.
+        ///   Looks up a localized string similar to Wyślij.
         /// </summary>
         internal static string NewMailWindowSentButn {
             get {
@@ -205,7 +205,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Polish.
+        ///   Looks up a localized string similar to Polski.
         /// </summary>
         internal static string PolLang {
             get {
@@ -214,7 +214,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Received.
+        ///   Looks up a localized string similar to Odebrane.
         /// </summary>
         internal static string ReceivedTab {
             get {
@@ -223,7 +223,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sent.
+        ///   Looks up a localized string similar to Wysłane.
         /// </summary>
         internal static string SentTab {
             get {
@@ -232,7 +232,7 @@ namespace wpflab1.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To.
+        ///   Looks up a localized string similar to Do:.
         /// </summary>
         internal static string ToText {
             get {

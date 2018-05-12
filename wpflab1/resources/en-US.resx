@@ -133,7 +133,7 @@
     <value>English</value>
   </data>
   <data name="FromText" xml:space="preserve">
-    <value>From</value>
+    <value>From:</value>
   </data>
   <data name="LoginScreenLogin" xml:space="preserve">
     <value>Login</value>
@@ -175,6 +175,6 @@
     <value>Sent</value>
   </data>
   <data name="ToText" xml:space="preserve">
-    <value>To</value>
+    <value>To:</value>
   </data>
 </root>
