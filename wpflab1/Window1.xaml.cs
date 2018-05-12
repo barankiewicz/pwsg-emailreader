@@ -65,7 +65,11 @@ namespace wpflab1
             if (checkCredentials())
                 Close();
             else
-                MessageBox.Show("Login failed");
+            {
+                string msg = (string)FindResource("LoginWindowErrMessage");
+                MessageBox.Show(msg);
+            }
+                
         }
 
         private void pswdBox_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -74,7 +78,10 @@ namespace wpflab1
                 if (checkCredentials())
                     Close();
                 else
-                    MessageBox.Show("Login failed");
+                {
+                    string msg = (string)FindResource("LoginWindowErrMessage");
+                    MessageBox.Show(msg);
+                }
         }
 
         private void loginBox_TextChanged(object sender, TextChangedEventArgs e)
