@@ -23,6 +23,7 @@ namespace wpflab1
     /// </summary>
     public partial class NewMailWindow : Window, INotifyPropertyChanged
     {
+
         public event PropertyChangedEventHandler PropertyChanged;
         private void RaisePropertyChanged(string propertyName)
         {

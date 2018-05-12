@@ -54,7 +54,15 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="20"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Margin="0 5 0 5" x:Name="toTextBox" TextWrapping="Wrap" TextChanged="toTextBox_TextChanged"/>
+                        <TextBox Grid.Column="0" HorizontalAlignment="Stretch" Margin="0 5 0 5" x:Name="toTextBox" TextWrapping="Wrap" TextChanged="toTextBox_TextChanged">
+                            <TextBox.Text>
+                                <Binding Path="Recipient" Mode="TwoWay">
+                                    <Binding.ValidationRules>
+                                        <local:EmailAddressValidator/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
                         <Image Grid.Column="1" Margin="0 5">
                             <Image.Source>
                                 <BitmapImage UriSource="/img/login.png"/>
