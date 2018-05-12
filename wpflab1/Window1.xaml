@@ -8,8 +8,8 @@
         mc:Ignorable="d"
         Title="Window1" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Width="400" Height="200" AllowsTransparency="True" WindowStyle="None" Topmost="True">
     <Grid Width="400" Height="300">
-        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="23" Margin="136,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="pswdBox" HorizontalAlignment="Left" Margin="136,95,0,0" VerticalAlignment="Top" Width="120" PreviewKeyDown="pswdBox_PreviewKeyDown"/>
+        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="23" Margin="136,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="loginBox_TextChanged"/>
+        <PasswordBox x:Name="pswdBox" HorizontalAlignment="Left" Margin="136,95,0,0" VerticalAlignment="Top" Width="120" KeyDown="pswdBox_PreviewKeyDown" PasswordChanged="pswdBox_PasswordChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{x:Static resx:Resource.LoginScreenTitle}" VerticalAlignment="Top" IsEnabled="False" FontSize="20" Foreground="DarkGreen"/>
         <Button x:Name="LOGINBTN" Content="{x:Static resx:Resource.LoginScreenLoginBtn}" HorizontalAlignment="Left" Margin="45,135,0,0" VerticalAlignment="Top" Width="134" Foreground="DarkGreen" Click="LoginButton_Click"/>
         <Button Content="{x:Static resx:Resource.CancelBtn}" HorizontalAlignment="Left" Margin="206,135,0,0" VerticalAlignment="Top" Width="134" Foreground="DarkGreen" Click="Button_Click"/>

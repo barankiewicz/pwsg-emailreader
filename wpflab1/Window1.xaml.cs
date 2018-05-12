@@ -29,6 +29,7 @@ namespace wpflab1
             
             InitializeComponent();
             DataContext = this;
+            LOGINBTN.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -74,6 +75,22 @@ namespace wpflab1
                     Close();
                 else
                     MessageBox.Show("Login failed");
+        }
+
+        private void loginBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (loginBox.Text.Length != 0 && pswdBox.Password.Length != 0)
+                LOGINBTN.IsEnabled = true;
+            else
+                LOGINBTN.IsEnabled = false;
+        }
+
+        private void pswdBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (loginBox.Text.Length != 0 && pswdBox.Password.Length != 0)
+                LOGINBTN.IsEnabled = true;
+            else
+                LOGINBTN.IsEnabled = false;
         }
     }
 }

@@ -135,6 +135,9 @@
   <data name="FromText" xml:space="preserve">
     <value>From:</value>
   </data>
+  <data name="LoginFailed" xml:space="preserve">
+    <value>Login Failed!</value>
+  </data>
   <data name="LoginScreenLogin" xml:space="preserve">
     <value>Login</value>
   </data>
