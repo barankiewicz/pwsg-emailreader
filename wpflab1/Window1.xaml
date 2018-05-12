@@ -10,11 +10,11 @@
     <Grid Width="400" Height="300">
         <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="23" Margin="136,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="loginBox_TextChanged"/>
         <PasswordBox x:Name="pswdBox" HorizontalAlignment="Left" Margin="136,95,0,0" VerticalAlignment="Top" Width="120" KeyDown="pswdBox_PreviewKeyDown" PasswordChanged="pswdBox_PasswordChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{x:Static resx:Resource.LoginScreenTitle}" VerticalAlignment="Top" IsEnabled="False" FontSize="20" Foreground="DarkGreen"/>
-        <Button x:Name="LOGINBTN" Content="{x:Static resx:Resource.LoginScreenLoginBtn}" HorizontalAlignment="Left" Margin="45,135,0,0" VerticalAlignment="Top" Width="134" Foreground="DarkGreen" Click="LoginButton_Click"/>
-        <Button Content="{x:Static resx:Resource.CancelBtn}" HorizontalAlignment="Left" Margin="206,135,0,0" VerticalAlignment="Top" Width="134" Foreground="DarkGreen" Click="Button_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="88,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"><Run Text="{x:Static resx:Resource.LoginScreenLogin}"/><LineBreak/><Run/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="81,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"><Run Text="{x:Static resx:Resource.LoginScreenPass}"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{DynamicResource ResourceKey=LoginWindowName}" VerticalAlignment="Top" IsEnabled="False" FontSize="20" Foreground="DarkGreen"/>
+        <Button x:Name="LOGINBTN" Content="{DynamicResource ResourceKey=LoginWindowLoginBtn}" HorizontalAlignment="Left" Margin="45,135,0,0" VerticalAlignment="Top" Width="134" Foreground="DarkGreen" Click="LoginButton_Click"/>
+        <Button Content="{DynamicResource ResourceKey=LoginWindowCancelBtn}" HorizontalAlignment="Left" Margin="206,135,0,0" VerticalAlignment="Top" Width="134" Foreground="DarkGreen" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="88,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"><Run Text="{DynamicResource ResourceKey=LoginWindowLogin}"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="81,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"><Run Text="{DynamicResource ResourceKey=LoginWindowPassword}"/><LineBreak/><Run/></TextBlock>
 
     </Grid>
 </Window>

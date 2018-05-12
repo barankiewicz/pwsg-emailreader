@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <!-- The name of this ResourceDictionary. Should not be localized. -->
+    <sys:String x:Key="ResourceDictionaryName">Loc-pl-PL</sys:String>
+
+    <!--Main screen (before login)-->
+    <sys:String x:Key="MainWindow_Title">Mejl Menedżer</sys:String>
+    <sys:String x:Key="LoginText">Zaloguj</sys:String>
+    <sys:String x:Key="LogoutText">Wyloguj</sys:String>
+    <sys:String x:Key="NewEmail">Nowy mail</sys:String>
+    <sys:String x:Key="EngLang">Angielski</sys:String>
+    <sys:String x:Key="PolLang">Polski</sys:String>
+
+    <!--Main screen (after login)-->
+    <sys:String x:Key="RecvdTab">Odebrane</sys:String>
+    <sys:String x:Key="SentTab">Wysłane</sys:String>
+    <sys:String x:Key="From">Od: </sys:String>
+    <sys:String x:Key="To">Do: </sys:String>
+
+
+    <!--Login Screen-->
+    <sys:String x:Key="LoginWindowName">Logowanie</sys:String>
+    <sys:String x:Key="LoginWindowLogin">Login</sys:String>
+    <sys:String x:Key="LoginWindowPassword">Hasło</sys:String>
+    <sys:String x:Key="LoginWindowLoginBtn">Zaloguj</sys:String>
+    <sys:String x:Key="LoginWindowCancelBtn">Anuluj</sys:String>
+    <sys:String x:Key="LoginWindowErrMessage">Logowanie nieudane!</sys:String>
+
+    <!--New mail screen-->
+    <sys:String x:Key="NewMailWindowName">Nowa wiadomość</sys:String>
+    <sys:String x:Key="NewMailTo">Nadawca:</sys:String>
+    <sys:String x:Key="NewMailTitle">Temat:</sys:String>
+    <sys:String x:Key="NewMailMessage">Wiadomość:</sys:String>
+    <sys:String x:Key="NewMailSend">Wyślij</sys:String>
+    <sys:String x:Key="NewMailCancel">Anuluj</sys:String>
+
+    <!--New mail screen - error messages-->
+    <sys:String x:Key="WrongMailErr">Błędny format adresu email</sys:String>
+    <sys:String x:Key="FieldEmptyErr">To pole nie może być puste</sys:String>
+    <sys:String x:Key="TooShortErr">Wiadomość musi mieć co najmniej 10 znaków</sys:String>
+</ResourceDictionary>

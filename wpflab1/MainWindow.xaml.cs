@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Resources;
 using System.Text;
 using System.Threading;
@@ -64,12 +65,11 @@ namespace wpflab1
             DataContext = this;
             recvdListBox.ItemsSource = messagesRcvd;
             sntListBox.ItemsSource = messagesSnt;
+            loginBtnText.SetResourceReference(TextBlock.TextProperty, "LoginText");
             CollectionView sentView = (CollectionView)CollectionViewSource.GetDefaultView(sntListBox.ItemsSource);
             CollectionView rcvdView = (CollectionView)CollectionViewSource.GetDefaultView(recvdListBox.ItemsSource);
             sentView.Filter = UserFilterSnt;
             rcvdView.Filter = UserFilterRecvd;
-            System.Threading.Thread.CurrentThread.CurrentUICulture =
-            new System.Globalization.CultureInfo("en-US");
         }
 
         private bool UserFilterRecvd(object item)
@@ -116,7 +116,7 @@ namespace wpflab1
 
                 addMailButton.IsEnabled = false;
                 searchBox.IsEnabled = false;
-                loginBtnText.Text = "Login";
+                loginBtnText.SetResourceReference(TextBlock.TextProperty, "LoginText");
                 isLoggedIn = false;
             }
             else
@@ -138,8 +138,8 @@ namespace wpflab1
 
                     addMailButton.IsEnabled = true;
                     searchBox.IsEnabled = true;
-                    loginBtnText.Text = "Logout";
-                    for(int i = 0; i<wnd.messagesRcvd.Count; i++)
+                    loginBtnText.SetResourceReference(TextBlock.TextProperty, "LogoutText");
+                    for (int i = 0; i<wnd.messagesRcvd.Count; i++)
                     {
                         allMessagesRcvd.Add(wnd.messagesRcvd[i]);
                         messagesRcvd.Add(wnd.messagesRcvd[i]);
@@ -202,13 +202,12 @@ namespace wpflab1
 
         private void RadioButtonEng_Checked(object sender, RoutedEventArgs e)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
-
+            App.Instance.SwitchLanguage("en-US");
         }
 
         private void RadioButtonPol_Checked(object sender, RoutedEventArgs e)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pl-PL");
+            App.Instance.SwitchLanguage("pl-PL");
         }
     }
 }
