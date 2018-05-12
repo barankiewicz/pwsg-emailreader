@@ -135,7 +135,7 @@
                 </Grid>
             </Grid>
 
-            <TabControl BorderThickness="0" Grid.Row="1" x:Name="messagesCol">
+            <TabControl BorderThickness="0" Grid.Row="1" x:Name="messagesCol" Cursor="Hand">
                 <TabControl.Resources>
                     <Style TargetType="TabItem">
                         <Setter Property="Template">
