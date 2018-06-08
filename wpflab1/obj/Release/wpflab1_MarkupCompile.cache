@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\obj\Release\
+X:\Programming\C#\_pwsg\pwsg-emailreader\wpflab1\obj\Release\
 wpflab1
 none
 false
 TRACE
-X:\Programming\C#\_pwsg\pwsg-mailreader\wpflab1\App.xaml
+X:\Programming\C#\_pwsg\pwsg-emailreader\wpflab1\App.xaml
 3141143319
 2-1652971320
 8-256157008
-681733808802
+68-46691976
 MainWindow.xaml;NewMailWindow.xaml;Window1.xaml;
 
 False
